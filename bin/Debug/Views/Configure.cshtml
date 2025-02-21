@@ -1,0 +1,52 @@
+﻿@model GPTFriendSettings
+@{
+	Layout = "_ConfigurePlugin";
+	//Layout = "~/Areas/Admin/Views/Shared/_AdminPopupLayout.cshtml";
+}
+
+<div class="cards-group">
+	<div class="card-body">
+		<div class="float-right">
+			<button class="btn bg-olive" onclick="location.href='@(Url.Action("SetGPTDescriptions", "GptFriend"))'" type="button">
+				<i class="fas fa-plus-square"></i>
+				@T("Admin.Common.UpdateProductText")
+			</button>
+		</div>
+	</div>
+</div>
+
+<div class="card card-default form-horizontal">
+	<form asp-controller="GptFriend" asp-action="Configure">
+		<div class="card-body">
+			<div class="search-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptKey" />
+								<nop-editor asp-for="@Model.GptKey" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptSeoSystemMessage" />
+								<nop-editor asp-for="@Model.GptSeoSystemMessage" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="text-center col-12">
+						<button type="submit" name="saveSettings" class="btn btn-primary">@T("Admin.Common.Save")</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+

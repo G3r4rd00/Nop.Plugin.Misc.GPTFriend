@@ -1,0 +1,33 @@
+﻿
+
+@using Nop.Core;
+@inject IWorkContext _workContext;
+
+@{
+    Layout = "_ColumnsOne";
+	var user = await _workContext.GetCurrentCustomerAsync();
+	string id = user.Email == null ? user.CustomerGuid.ToString() : user.Email;
+}
+
+<script asp-exclude-from-bundle="true" src="~/Plugins/Misc.GPTFriend/Content/Scripts/dist/browser/signalr.min.js" asp-location="Footer"></script>
+<script asp-exclude-from-bundle="true" src="~/Plugins/Misc.GPTFriend/Content/Scripts/ChatWindow.js" asp-location="Footer"></script>
+
+
+<script asp-location="Footer">
+	var chatWindow = new ChatWindow("chat-container", '@id');
+</script>
+
+<div id="chat-container" class="chat-container-float" >
+	<div class="messages"></div>
+	<div class="recommended-articles">
+	</div>
+	<div class="input-container">
+		<textarea class="message-input" placeholder="@T("Plugins.Misc.GPTFriend.Text.WriteMessage").Text"></textarea>
+		<button class="send-btn">@T("Plugins.Misc.GPTFriend.Text.Send").Text</button>
+	</div>
+	<!-- Indicador de carga oculto por defecto -->
+	<div id="loading-indicator" style="display: none;">
+		<!-- Aquí puedes colocar tu animación o icono de carga -->
+		<p>Cargando...</p>
+	</div>
+</div>

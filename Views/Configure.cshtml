@@ -1,0 +1,126 @@
+﻿@model GPTFriendSettings
+@{
+	Layout = "_ConfigurePlugin";
+	//Layout = "~/Areas/Admin/Views/Shared/_AdminPopupLayout.cshtml";
+}
+
+<div class="cards-group">
+	<div class="card-body">
+		<div class="float-right">
+			
+		</div>
+	</div>
+</div>
+
+<div class="card card-default form-horizontal">
+	<form asp-controller="GptFriend" asp-action="Configure">
+		<div class="card-body">
+			<div class="search-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptKey" />
+								<textarea asp-for="@Model.GptKey" cols="120" rows="1" class="description"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptModel" />
+								<select name="GptModel">
+									@foreach (var e in Model.GptModels)
+									{
+										if(e.Selected)
+										{
+											<option selected value="@e.Value">@e.Text</option>
+										}
+										else
+										{
+											<option value="@e.Value">@e.Text</option>
+										}
+									}
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptMaxTokens" />
+								<textarea asp-for="@Model.GptMaxTokens" cols="5" rows="1" class="description"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptDelay" />
+								<textarea asp-for="@Model.GptDelay" cols="5" rows="1" class="description"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				@* PRODUCTOS *@
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptProductSystemMessage" />
+								<textarea asp-for="@Model.GptProductSystemMessage" cols="120" rows="5" class="description"></textarea>
+								<button class="btn bg-olive" onclick="location.href='@(Url.Action("SetGPTDescriptions", "GptFriend"))'" type="button">
+									<i class="fas fa-plus-square"></i>
+									Update Productos
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				@* FAMILIAS *@
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptFamiliasSystemMessage" />
+								<textarea asp-for="@Model.GptFamiliasSystemMessage" cols="120" rows="5" class="description"></textarea>
+								<button class="btn bg-olive" onclick="location.href='@(Url.Action("SetGPTFamilyDescriptions", "GptFriend"))'" type="button">
+									<i class="fas fa-plus-square"></i>
+									Update Familias
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				@*MARCAS*@
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<nop-label style="float:left; margin-right:10px" asp-for="@Model.GptMarcasSystemMessage" />
+								<textarea asp-for="@Model.GptMarcasSystemMessage" cols="120" rows="5" class="description"></textarea>
+								<button class="btn bg-olive" onclick="location.href='@(Url.Action("SetGPTBrandDescriptions", "GptFriend"))'" type="button">
+									<i class="fas fa-plus-square"></i>
+									Update Marcas
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="text-center col-12">
+						<button type="submit" name="saveSettings" class="btn btn-primary">@T("Admin.Common.Save")</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+

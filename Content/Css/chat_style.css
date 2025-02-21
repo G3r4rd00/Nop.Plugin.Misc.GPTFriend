@@ -1,0 +1,312 @@
+﻿
+
+
+
+@media all and (min-width: 1025px) {
+    #chat-container {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    #chat-container .message {
+        max-width: 70%;
+    }
+}
+
+.chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3FB59B;
+    color: #fff;
+    padding-bottom: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    /* width: 190px; */
+    background-image: url(/Themes/Motion/Content/img/chatai.png);
+    background-repeat: no-repeat;
+    background-size: 45px;
+    z-index: 1000;
+    padding-right: 9px;
+}
+
+    .chat-btn .main-text {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 45px;
+    }
+
+    .chat-btn .secondary-text {
+        font-size: 12px;
+        font-style: italic;
+        text-align: left;
+        color: #f0f0f0;
+        margin-left: 45px;
+    }
+
+    .chat-btn div {
+        margin-left: auto; /* Empuja los textos hacia la derecha */
+    }
+
+
+#chat-container #loading-indicator {
+    display: none; /* Mantener oculto por defecto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    background-color: rgba(255, 255, 255, 0.8); /* Opcional: Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+#chat-container {
+    margin: 0px;
+}
+
+    #chat-container .recommended-articles {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+        #chat-container .recommended-articles .articulo {
+            flex: 0 0 auto;
+            width: 25%;
+            min-width: 250px;
+        }
+
+            /* Imagen del artículo */
+            #chat-container .recommended-articles .articulo img {
+                width: 100px;
+                height: auto;
+                float: left;
+                height: 100px;
+                margin-right: 10px;
+            }
+
+
+            /* Información del artículo */
+            #chat-container .recommended-articles .articulo .info {
+                text-align: left;
+            }
+
+            /* Nombre del producto */
+            #chat-container .recommended-articles .articulo .product_name a {
+                text-decoration: none;
+                color: #000;
+                font-size: 14px;
+            }
+
+            /* Precio del producto */
+            #chat-container .recommended-articles .articulo .price {
+                font-size: 12px;
+                font-weight: bold;
+                color: #000;
+                text-align: left;
+            }
+
+
+    /* Contenedor de mensajes */
+    #chat-container .messages {
+        display: block;
+        overflow-y: auto;
+        height: calc(100% - 249px);
+        font-size: 15px;
+        height: 350px;
+        margin-bottom: 15px;
+    }
+
+    /* Estilos generales para los mensajes */
+    #chat-container .message {
+        max-width: 80%;
+        border-radius: 7.5px;
+        padding: 8px 12px;
+        margin: 5px 10px;
+        position: relative;
+        word-wrap: break-word;
+        clear: both;
+    }
+
+        /* Mensajes enviados por ti */
+        #chat-container .message.from-me {
+            float: right;
+            background-color: #dcf8c6; /* Color verde claro de WhatsApp */
+            color: #000;
+            width: 100%;
+        }
+
+        /* Mensajes recibidos */
+        #chat-container .message.from-others {
+            background-color: #fff;
+            color: #000;
+        }
+
+    /* Limpiar floats después de los mensajes */
+    #chat-container .messages::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Input de mensaje */
+    #chat-container .message-input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-top: 1px solid #bbb;
+        box-sizing: border-box;
+        resize: none;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        min-height: 60px;
+    }
+
+    /* Botón de enviar */
+    #chat-container .send-btn {
+        background-color: #9f94f7;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 5px 10px;
+        border: 0;
+        right: 20px;
+        bottom: 20px;
+        float: right;
+    }
+
+    /* Contenedor del input y botón */
+    #chat-container .input-container {
+        position: relative;
+        height: 105px;
+    }
+
+    /* Estilos adicionales */
+    #chat-container .chat-container-float {
+        bottom: 0;
+        right: 0;
+        background-color: #ededed;
+        border: 2px solid #9f94f7;
+        border-radius: 5px;
+        display: block;
+        z-index: 10;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #chat-container .head-chat-container {
+        text-align: right;
+        height: 30px;
+    }
+
+    /* Ajustar el botón de cerrar */
+    #chat-container .close-btn {
+        cursor: pointer;
+        display: none;
+        background-color: transparent;
+        border: none;
+        color: #8b8b8b;
+    }
+
+    /* Estilos para mensajes enviados por ti */
+    #chat-container .message.from-me {
+        float: right;
+        background-color: #dcf8c6;
+        color: #000;
+    }
+
+
+    /* Deshabilitar el float en mensajes de artículos */
+    #chat-container .from-me, #chat-container .from-others {
+        float: none;
+    }
+
+    /* Mensajes de artículos */
+    #chat-container .message.articulo {
+        display: inline-block;
+        vertical-align: top;
+        margin: 5px;
+    }
+
+    /* Opcional: Estilos para cuando el input está deshabilitado */
+    #chat-container .message-input.disabled {
+        background-color: #f3f3f3;
+        cursor: not-allowed;
+        opacity: 0.6;
+        position: relative;
+    }
+
+        #chat-container .message-input.disabled::after {
+            content: "";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            margin-top: -8px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            border-top-color: #000;
+            animation: spin 1s linear infinite;
+        }
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos adicionales según tu CSS original */
+#chat-container .disconnected-message {
+    color: red;
+}
+
+#chat-container .selected {
+    color: green;
+}
+
+#chat-container .head-text {
+    margin-bottom: 10px;
+}
+
+#chat-container .admin-chat-container {
+    display: block;
+    height: 800px;
+    float: right;
+    margin-left: 20px;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: lightgrey;
+    width: 50%;
+    border-radius: 5px;
+    text-align: left;
+}
+
+#chat-container .chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#chat-container .start-chat-button {
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#chat-container .odd:hover {
+    color: green;
+}
+

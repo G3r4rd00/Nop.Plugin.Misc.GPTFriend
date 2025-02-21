@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "GPTFriend",
+  "SystemName": "Misc.GPTFriend",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.60","4.50" ],
+  "Author": "Gerardo Tous",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.GPTFriend.dll",
+  "Description": "Advanced url redirections"
+}  

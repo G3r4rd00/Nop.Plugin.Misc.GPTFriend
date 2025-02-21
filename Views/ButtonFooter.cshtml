@@ -1,0 +1,12 @@
+@* 
+<link rel="stylesheet" href="~/Plugins/Misc.GPTFriend/Content/css/chat_style.css" />
+
+@if (Context.Request.Path.Value != "/chatgpt/assistant" && !Context.Request.Path.Value.Contains("checkout"))
+{
+	
+	<div class="chat-btn" onclick="window.location.href='/chatgpt/assistant';">
+		<div class="main-text">@T("Plugins.Misc.GPTFriend.Text.Chat").Text</div>
+		<div class="secondary-text">@T("Plugins.Misc.GPTFriend.Text.Chat2").Text</div>
+	</div>
+}
+ *@

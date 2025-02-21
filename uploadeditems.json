@@ -1,0 +1,9 @@
+﻿[
+    {
+        "Type": "Plugin",
+        "SupportedVersion": "4.50.4",
+        "DirectoryPath": "Nop.Plugin.Misc.GPTFriend/",
+        "SystemName": "Misc.GPTFriend",
+        "SourceDirectoryPath": "Nop.Plugin.Misc.GPTFriend/"
+    }
+]
