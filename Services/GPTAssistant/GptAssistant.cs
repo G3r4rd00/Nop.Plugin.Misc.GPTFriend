@@ -10,8 +10,8 @@ namespace Nop.Plugin.Misc.GPTFriend.Services.GPTAssistant
 {
 	public class GptAssistant
 	{
-		string apiKey = "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";
-		string assistantId = "asst_LFr3owYq00NSPqcjg8ZpTESY";
+		string apiKey = "";
+		string assistantId = "";
 
 		public  async Task<string> GetThreadId()
 		{
